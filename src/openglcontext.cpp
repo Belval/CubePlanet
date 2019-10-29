@@ -72,7 +72,7 @@ bool OpenglContext::Start(const std::string& title, int width, int height, bool 
 															  // Due to a bug in SFML2.3, handle max fps ourself
 		float dt = (1.f / m_maxFps) - m_lastFrameTime;
 		if (dt > 0)
-			usleep(dt * 1000.f * 1000.f);
+			usleep(dt * 1000.f);
 
 		m_lastFrameTime = clock.getElapsedTime().asSeconds(); // time taken by the current loop + sleep for max fps
     }
