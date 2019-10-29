@@ -1,6 +1,6 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -pedantic -std=c++14 -g -fsanitize=address
-LDFLAGS =  -fsanitize=address
+CXXFLAGS = -Wall -std=c++14
+LDFLAGS =  -lGL -lglut -lGLU -lGLEW -lIL -lILU -lILUT -lsfml-graphics -lsfml-window -lsfml-system
 
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)

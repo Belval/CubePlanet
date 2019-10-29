@@ -29,7 +29,7 @@ typedef uint8 BlockType;
 enum BLOCK_TYPE {BTYPE_AIR, BTYPE_DIRT, BTYPE_STONE, BTYPE_SAND, BTYPE_SANDSTONE, BTYPE_LEAF, BTYPE_WOOD, BTYPE_PLANK, BTYPE_UNKNOWN};
 
 
-#define TEXTURE_PATH        "../cubeplanet/media/textures/"
+#define TEXTURE_PATH        "./src/media/textures/"
 #define TEXTURE_ATLAS_SIZE  16
 #define VIEW_DISTANCE       128
 #define VITESSE_ACCROUPI	5
@@ -37,6 +37,6 @@ enum BLOCK_TYPE {BTYPE_AIR, BTYPE_DIRT, BTYPE_STONE, BTYPE_SAND, BTYPE_SANDSTONE
 #define VITESSE_COURSE		15
 #define GRAVITY				-9.8f
 
-#define SHADER_PATH "../cubeplanet/media/shader/"
+#define SHADER_PATH "./src/media/shader/"
 
 #endif // DEFINE_H__
