@@ -1,0 +1,122 @@
+﻿Build started 2015-11-03 9:02:06 PM.
+     1>Project "E:\Git\CubePlanet\CubePlanet\cubeplanet\cubeplanet.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\Visual Studio\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D NOMINMAX /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt blockinfo.cpp chunk.cpp chunkmesh.cpp engine.cpp main.cpp openglcontext.cpp player.cpp shader.cpp stalker.cpp texture.cpp textureatlas.cpp tool.cpp
+         tool.cpp
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\tool.cpp(28): warning C4244: 'initializing': conversion from 'std::streamoff' to 'unsigned int', possible loss of data
+         textureatlas.cpp
+         texture.cpp
+         stalker.cpp
+         shader.cpp
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\shader.cpp(126): warning C4800: 'GLint': forcing value to bool 'true' or 'false' (performance warning)
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\shader.cpp(150): warning C4800: 'GLint': forcing value to bool 'true' or 'false' (performance warning)
+         player.cpp
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\engine.h(43): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+         openglcontext.cpp
+         main.cpp
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\engine.h(43): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+         engine.cpp
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\engine.h(43): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+         chunkmesh.cpp
+         chunk.cpp
+     1>e:\git\cubeplanet\cubeplanet\cubeplanet\engine.h(43): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+         blockinfo.cpp
+         Generating Code...
+       Link:
+         E:\Visual Studio\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Git\CubePlanet\CubePlanet\x64\Debug\CubePlanet.exe" /INCREMENTAL /NOLOGO "sfml-main-d.lib" "sfml-system-d.lib" "sfml-window-d.lib" "sfml-graphics-d.lib" GlU32.Lib OpenGL32.Lib DevIL.lib ILU.lib ILUT.lib glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Git\CubePlanet\CubePlanet\x64\Debug\CubePlanet.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Git\CubePlanet\CubePlanet\x64\Debug\CubePlanet.lib" /MACHINE:X64 x64\Debug\blockinfo.obj
+         x64\Debug\chunk.obj
+         x64\Debug\chunkmesh.obj
+         x64\Debug\engine.obj
+         x64\Debug\main.obj
+         x64\Debug\openglcontext.obj
+         x64\Debug\player.obj
+         x64\Debug\shader.obj
+         x64\Debug\stalker.obj
+         x64\Debug\texture.obj
+         x64\Debug\textureatlas.obj
+         x64\Debug\tool.obj
+     1>chunkmesh.obj : error LNK2001: unresolved external symbol __imp___glewClientActiveTexture
+     1>chunkmesh.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+     1>stalker.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+     1>chunkmesh.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+     1>stalker.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+     1>chunkmesh.obj : error LNK2001: unresolved external symbol __imp___glewDeleteBuffers
+     1>chunkmesh.obj : error LNK2001: unresolved external symbol __imp___glewGenBuffers
+     1>engine.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function "public: virtual void __cdecl Engine::Init(void)" (?Init@Engine@@UEAAXXZ)
+     1>engine.obj : error LNK2019: unresolved external symbol __imp_glewGetErrorString referenced in function "public: virtual void __cdecl Engine::Init(void)" (?Init@Engine@@UEAAXXZ)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: float __cdecl sf::Time::asSeconds(void)const " (__imp_?asSeconds@Time@sf@@QEBAMXZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Clock::Clock(void)" (__imp_??0Clock@sf@@QEAA@XZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class sf::Time __cdecl sf::Clock::getElapsedTime(void)const " (__imp_?getElapsedTime@Clock@sf@@QEBA?AVTime@2@XZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class sf::Time __cdecl sf::Clock::restart(void)" (__imp_?restart@Clock@sf@@QEAA?AVTime@2@XZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QEAA@PEBDAEBVlocale@std@@@Z) referenced in function "private: void __cdecl OpenglContext::InitWindow(int,int)" (?InitWindow@OpenglContext@@AEAAXHH@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::String::~String(void)" (__imp_??1String@sf@@QEAA@XZ) referenced in function "private: void __cdecl OpenglContext::InitWindow(int,int)" (?InitWindow@OpenglContext@@AEAAXHH@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: static void __cdecl sf::Mouse::setPosition(class sf::Vector2<int> const &,class sf::Window const &)" (__imp_?setPosition@Mouse@sf@@SAXAEBV?$Vector2@H@2@AEBVWindow@2@@Z) referenced in function "protected: void __cdecl OpenglContext::CenterMouse(void)" (?CenterMouse@OpenglContext@@IEAAXXZ)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QEAA@III@Z) referenced in function "private: void __cdecl OpenglContext::InitWindow(int,int)" (?InitWindow@OpenglContext@@AEAAXHH@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __cdecl sf::Window::Window(void)" (__imp_??0Window@sf@@QEAA@XZ) referenced in function "public: __cdecl OpenglContext::OpenglContext(void)" (??0OpenglContext@@QEAA@XZ)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __cdecl sf::Window::~Window(void)" (__imp_??1Window@sf@@UEAA@XZ) referenced in function "int `public: __cdecl OpenglContext::OpenglContext(void)'::`1'::dtor$0" (?dtor$0@?0???0OpenglContext@@QEAA@XZ@4HA)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::create(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_?create@Window@sf@@QEAAXVVideoMode@2@AEBVString@2@IAEBUContextSettings@2@@Z) referenced in function "private: void __cdecl OpenglContext::InitWindow(int,int)" (?InitWindow@OpenglContext@@AEAAXHH@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::close(void)" (__imp_?close@Window@sf@@QEAAXXZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Window::isOpen(void)const " (__imp_?isOpen@Window@sf@@QEBA_NXZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Window::pollEvent(class sf::Event &)" (__imp_?pollEvent@Window@sf@@QEAA_NAEAVEvent@2@@Z) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: class sf::Vector2<unsigned int> __cdecl sf::Window::getSize(void)const " (__imp_?getSize@Window@sf@@QEBA?AV?$Vector2@I@2@XZ) referenced in function "public: int __cdecl OpenglContext::Height(void)const " (?Height@OpenglContext@@QEBAHXZ)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::setMouseCursorVisible(bool)" (__imp_?setMouseCursorVisible@Window@sf@@QEAAX_N@Z) referenced in function "protected: void __cdecl OpenglContext::HideCursor(void)" (?HideCursor@OpenglContext@@IEAAXXZ)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::setFramerateLimit(unsigned int)" (__imp_?setFramerateLimit@Window@sf@@QEAAXI@Z) referenced in function "public: void __cdecl OpenglContext::SetMaxFps(int)" (?SetMaxFps@OpenglContext@@QEAAXH@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __cdecl sf::Window::setActive(bool)const " (__imp_?setActive@Window@sf@@QEBA_N_N@Z) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>openglcontext.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __cdecl sf::Window::display(void)" (__imp_?display@Window@sf@@QEAAXXZ) referenced in function "public: bool __cdecl OpenglContext::Start(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,int,int,bool)" (?Start@OpenglContext@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH_N@Z)
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewAttachShader
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewCompileShader
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewCreateProgram
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewCreateShader
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramInfoLog
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramiv
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderInfoLog
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderiv
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewGetUniformLocation
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewIsProgram
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewIsShader
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewLinkProgram
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewShaderSource
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform1f
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewUniform1i
+     1>shader.obj : error LNK2001: unresolved external symbol __imp___glewUseProgram
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilBindImage referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilBindImage
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilConvertImage referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilConvertImage
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilDeleteImages referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilDeleteImages
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilGenImages referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilGenImages
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilGetData referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilGetData
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilGetInteger referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilGetInteger
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilInit referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilInit
+     1>texture.obj : error LNK2019: unresolved external symbol __imp_ilLoadImage referenced in function "public: bool __cdecl Texture::Load(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,bool)" (?Load@Texture@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z)
+     1>textureatlas.obj : error LNK2001: unresolved external symbol __imp_ilLoadImage
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilClearColour referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilClearImage referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilCopyImage referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilCopyPixels referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilEnable referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilOriginFunc referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilSetPixels referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_ilTexImage referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_iluImageParameter referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_iluInit referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>textureatlas.obj : error LNK2019: unresolved external symbol __imp_iluScale referenced in function "public: bool __cdecl TextureAtlas::Generate(int,bool)" (?Generate@TextureAtlas@@QEAA_NH_N@Z)
+     1>external\sfml23\lib\sfml-main-d.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external\sfml23\lib\sfml-system-d.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external\sfml23\lib\sfml-window-d.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external\sfml23\lib\sfml-graphics-d.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external\devil178\lib\DevIL.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external\devil178\lib\ILU.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external\devil178\lib\ILUT.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>external/glew_vstudio2k10/lib\glew32.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+     1>E:\Git\CubePlanet\CubePlanet\x64\Debug\CubePlanet.exe : fatal error LNK1120: 61 unresolved externals
+     1>Done Building Project "E:\Git\CubePlanet\CubePlanet\cubeplanet\cubeplanet.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:11.46
