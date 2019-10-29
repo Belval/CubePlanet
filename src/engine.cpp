@@ -232,17 +232,6 @@ void Engine::Render(float elapsedTime)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	//Current Chunk calculation
-	/*m_player->SetCurrentChunkPos((m_player->Position().x < 0
-			? ((m_player->Position().x / CHUNK_SIZE_X) - 1)
-			: (m_player->Position().x / CHUNK_SIZE_X)),
-		(m_player->Position().z < 0
-			? ((m_player->Position().z / CHUNK_SIZE_Z) - 1)
-			: (m_player->Position().z / CHUNK_SIZE_Z)));
-	m_player->SetCurrentChunk(
-		m_listChunks->Get(m_player->CurrentChunkPos().x + (VIEW_DISTANCE / CHUNK_SIZE_X),
-		m_player->CurrentChunkPos().z + (VIEW_DISTANCE / CHUNK_SIZE_Z)));*/
-
 	m_player->ApplyRotation();
 	CheckCollision(elapsedTime);
 
@@ -252,14 +241,7 @@ void Engine::Render(float elapsedTime)
 	m_textureAtlas.Bind();
 	// Chunk Render
 	m_shader01.Use();
-	//if (m_testChunk.IsDirty())
-	//	m_testChunk.Update(m_listBloc);
-	//m_testChunk.Render();
-
-	//if (m_testChunk2.IsDirty())
-	//	m_testChunk2.Update(m_listBloc);
-	//m_testChunk2.Render();
-
+	
 	for (size_t z = 0; z < VIEW_DISTANCE / (CHUNK_SIZE_Z / 2); z++)
 	{
 		for (size_t x = 0; x < VIEW_DISTANCE / (CHUNK_SIZE_X / 2); x++)
@@ -362,9 +344,9 @@ void Engine::KeyReleaseEvent(unsigned char key)
 
 void Engine::MouseMoveEvent(int x, int y)
 {
-	// Centrer la souris seulement si elle n'est pas déjà centrée
-	// Il est nécessaire de faire la vérification pour éviter de tomber
-	// dans une boucle infinie où l'appel à CenterMouse génère un
+	// Centrer la souris seulement si elle n'est pas dï¿½jï¿½ centrï¿½e
+	// Il est nï¿½cessaire de faire la vï¿½rification pour ï¿½viter de tomber
+	// dans une boucle infinie oï¿½ l'appel ï¿½ CenterMouse gï¿½nï¿½re un
 	// MouseMoveEvent, qui rapelle CenterMouse qui rapelle un autre 
 	// MouseMoveEvent, etc
 
@@ -419,7 +401,7 @@ void Engine::DrawHud()
 	ss << "Bloc : " << m_player->BlocUnder();
 	PrintText(10, 30, ss.str());*/
 	ss.str("");
-	ss << " Position : " << m_player->Position(); // IMPORTANT : on utilise l ’ operateur << pour afficher la position
+	ss << " Position : " << m_player->Position(); // IMPORTANT : on utilise l ï¿½ operateur << pour afficher la position
 	PrintText(10, 10, ss.str());
 	// Affichage du crosshair
 	m_textureCrosshair.Bind();

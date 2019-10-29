@@ -18,6 +18,7 @@ Chunk::Chunk(int nx, int nz) : m_blocks(CHUNK_SIZE_X, CHUNK_SIZE_Y, CHUNK_SIZE_Z
 	Size.y = CHUNK_SIZE_Y;
 	Size.z = CHUNK_SIZE_Z;
 	DrawPlayGround();
+	m_isDirty = true;
 }
 void Chunk::Render() const
 {
