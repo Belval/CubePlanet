@@ -1,8 +1,8 @@
 #include "player.h"
 
-Player::Player(float posX, float posY, float posZ, float rotX, float rotY) : m_positionPersonnage(posX, posY, posZ)
+Player::Player(World* world, float posX, float posY, float posZ, float rotX, float rotY) : m_positionPersonnage(posX, posY, posZ)
 {
-
+	m_World = world;
 }
 
 Player::~Player() { }
@@ -13,9 +13,9 @@ void Player::TurnLeftRight(float value)
 }
 void Player::TurnTopBottom(float value)
 {
-	if ((rotX + value) > 90) // On empêche le joueur de faire des "frontflips"
+	if ((rotX + value) > 90) // On empï¿½che le joueur de faire des "frontflips"
 		rotX = 90;
-	else if ((rotX + value) < -90)  // On empêche le joueur de faire des "backflip"
+	else if ((rotX + value) < -90)  // On empï¿½che le joueur de faire des "backflip"
 		rotX = -90;
 	else
 		rotX += value;
@@ -23,7 +23,7 @@ void Player::TurnTopBottom(float value)
 
 Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool run, bool jump, bool crouch, float elapsedTime)
 {
-	// Pour éviter les calculs supplémentaires on le fait une fois en haut
+	// Pour ï¿½viter les calculs supplï¿½mentaires on le fait une fois en haut
 	float fMultiplicateur = elapsedTime * (run && !crouch ? VITESSE_COURSE : (crouch ? VITESSE_ACCROUPI : VITESSE_MARCHE)); // On prend en compte si le joueur "run"
 	Vector3f vecteurDeplacement;
 	vecteurDeplacement.Zero();
@@ -59,11 +59,11 @@ Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool
 	}
 	if (jump)
 	{
-		vecteurDeplacement.y += float(10 * elapsedTime);
+		vecteurDeplacement.y += float(20 * elapsedTime);
 	}
 	if (crouch)
 	{
-		vecteurDeplacement.y -= float(10 * elapsedTime);
+		vecteurDeplacement.y -= float(20 * elapsedTime);
 	}
 	return vecteurDeplacement;
 }
@@ -87,60 +87,6 @@ void Player::SetPosition(Vector3f v)
 {
 	m_positionPersonnage = v;
 }
-
-//Chunk* Player::CurrentChunk() const
-//{
-//	return m_currentChunk;
-//}
-//
-//void Player::SetCurrentChunk(Chunk* chunk)
-//{
-//	m_currentChunk = chunk;
-//}
-
-//Vector3f Player::CurrentChunkPos() const
-//{
-//	return m_currentChunkPos;
-//}
-//
-//void Player::SetCurrentChunkPos(int x, int z)
-//{
-//	m_currentChunkPos.x = x;
-//	m_currentChunkPos.z = z;
-//}
-//bool Player::Collision(Vector3f v)
-//{
-//	if (m_currentChunk == nullptr) return false;
-//	Vector3f nouvellePosition = m_positionPersonnage + v;
-//	if (m_currentChunk->GetBloc(
-//			roundf(nouvellePosition.x - m_currentChunkPos.x * CHUNK_SIZE_X),
-//			roundf(nouvellePosition.y),
-//			roundf(nouvellePosition.z - m_currentChunkPos.z * CHUNK_SIZE_Z)) != BTYPE_AIR
-//		|| m_currentChunk->GetBloc(
-//			roundf(nouvellePosition.x - m_currentChunkPos.x * CHUNK_SIZE_X),
-//			roundf(nouvellePosition.y - 1.f),
-//			roundf(nouvellePosition.z - m_currentChunkPos.z * CHUNK_SIZE_Z)) != BTYPE_AIR)
-//		return true;
-//	else
-//		return false;
-//}
-//bool Player::CollisionUnder()
-//{
-//	Vector3f v;
-//	v.y = -1.7f;
-//	return Collision(v);
-//}
-//bool Player::CollisionTop()
-//{
-//	Vector3f v;
-//	v.y = 2.f;
-//	return Collision(v);
-//}
-//
-//bool Player::CollisionY(Vector3f v)
-//{
-//	return false;
-//}
 
 //void Player::CalculateY(float fTime)
 //{

@@ -6,7 +6,7 @@ World::World(int x, int z) : m_Map(x, z)
 	{
 		for (int j = 0; j < z; j++)
 		{
-			m_Map.Set(i, j, new Chunk(i * CHUNK_SIZE_X, j * CHUNK_SIZE_Z));
+			m_Map.Set(i, j, new Chunk(m_perlin, i * CHUNK_SIZE_X, j * CHUNK_SIZE_Z));
 		}
 	}
 }

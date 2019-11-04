@@ -6,11 +6,12 @@
 #include "chunkmesh.h"
 #include "blockinfo.h"
 #include "vector3.h"
+#include "perlin.h"
 
 class Chunk
 {
 public:
-    Chunk(int x = 0, int z = 0);
+    Chunk(Perlin* perlin, int x = 0, int z = 0);
     ~Chunk();
 
 	void Update(Array2d<BlockInfo>* m_listBloc);
