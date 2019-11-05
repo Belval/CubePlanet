@@ -6,9 +6,9 @@
 
 void Tool::CheckTypes()
 {
-    // Vérifier que les types définis dans define.h ont vraiment la bonne taille
-    // Cette vérification se révèlera utile si on change de compilateur/architecture
-    // et qu'on oublie de vérifier la taille des types
+    // Vï¿½rifier que les types dï¿½finis dans define.h ont vraiment la bonne taille
+    // Cette vï¿½rification se rï¿½vï¿½lera utile si on change de compilateur/architecture
+    // et qu'on oublie de vï¿½rifier la taille des types
     assert(sizeof(uint8) == 1);
     assert(sizeof(uint16) == 2);
     assert(sizeof(uint32) == 4);

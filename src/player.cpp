@@ -59,12 +59,24 @@ Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool
 	}
 	if (jump)
 	{
-		vecteurDeplacement.y += float(20 * elapsedTime);
+		if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
+			m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR) {
+			m_vitessePersonnage.y += 10.f;
+		}
 	}
 	if (crouch)
 	{
 		vecteurDeplacement.y -= float(20 * elapsedTime);
 	}
+	if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
+		m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR) {
+		m_vitessePersonnage.y = m_vitessePersonnage.y > 0 ? m_vitessePersonnage.y : 0;
+	}
+	else {
+		m_vitessePersonnage.y += GRAVITY * 2 * elapsedTime;
+	}
+	vecteurDeplacement.y += m_vitessePersonnage.y * elapsedTime;
+
 	return vecteurDeplacement;
 }
 
