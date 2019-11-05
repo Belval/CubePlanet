@@ -12,13 +12,18 @@ Chunk::Chunk(Perlin* perlin, int nx, int nz) : m_blocks(CHUNK_SIZE_X, CHUNK_SIZE
 			for (int y = 0; y < height; ++y)
 			{
 				SetBloc(x, y, z, height - y < 5 ? height - y == 1 ? BTYPE_GRASS : BTYPE_DIRT : BTYPE_STONE);
+				if (height - y == 1)
+				{
+					if (rand() % 50 == 1) {
+						DrawTree(x, height, z);
+					}
+				}
 			} 
 		} 
 	}
 	Size.x = CHUNK_SIZE_X;
 	Size.y = CHUNK_SIZE_Y;
 	Size.z = CHUNK_SIZE_Z;
-	//DrawPlayGround();
 	m_isDirty = true;
 }
 void Chunk::Render() const
@@ -153,8 +158,6 @@ Vector3f Chunk::GetSize() const
 
 uint8 Chunk::IsVisible(int x, int y, int z)
 {
-	// TODO: Optimize this -Kan
-	// 2015-11-16: Thank you past me!
 	int i = 0;
 	if (x < Size.x && y < Size.y && z + 1 < Size.z && x >= 0 && y >= 0 && z + 1 >= 0){
 		if (m_blocks.Get(x, y, z + 1) == BTYPE_AIR)
@@ -194,114 +197,27 @@ uint8 Chunk::IsVisible(int x, int y, int z)
 		i += 32;
 	return i;
 }
-void Chunk::DrawPlayGround() 
+void Chunk::DrawTree(int x, int y, int z)
 {
-	if(rand() % 100 < 25)
-		DrawArch(1, 1, 12, BTYPE_LEAF);
-	if(rand() % 100 > 90)
-		DrawStairs(8, 1, 6, BTYPE_STONE, true);
-	if(rand() % 10 < 4)
-		DrawWall(12, 1, 5, BTYPE_STONE);
-	if(rand() % 4000 < 375)
-		DrawWall(4, 1, 2, BTYPE_SANDSTONE, true);
-	if (rand() % 200 > 150)
-		DrawRoundStairs(0, 0, 0, BTYPE_SANDSTONE);
-	if (rand() % 10 > 8)
-		DrawTower(7, 1, 7, BTYPE_WOOD);
-}
-void Chunk::DrawStairs(int x, int y, int z, BlockType type, bool vertical)
-{
-	size_t v = 0;
-	for (size_t u = 0; u < 4; u++)
+	size_t treeHeight = rand() % 5 + 3;
+	size_t foliageHeight = treeHeight - rand() % treeHeight - 2;
+	foliageHeight = foliageHeight < 1 ? 1 : foliageHeight;
+	for (size_t i = 0; i < treeHeight; i++) 
 	{
-		if (vertical)
-			m_blocks.Set(x, y + v, z + u, type);
-		else
-			m_blocks.Set(x + u, y + v, z, type);
-		v++;
-	}
-}
-void Chunk::DrawWall(int x, int y, int z, BlockType type, bool vertical)
-{
-	for (size_t u = 0; u < 4; u++)
-	{
-		for (size_t v = 0; v < 3; v++)
-		{
-			if (vertical)
-				m_blocks.Set(x, y + v, z + u, type);
-			else
-				m_blocks.Set(x + u, y + v, z, type);
+		m_blocks.Set(x, y + i, z, BTYPE_WOOD);
+		if (i > foliageHeight) {
+			for (int j = x - 2; j < x + 3; j++) {
+				for (int k = z - 2; k < z + 3; k++) {
+					if (j != 0 && k != 0)
+						m_blocks.Set(j, y + i, k, BTYPE_LEAF); 
+				}
+			}
 		}
-	}
-}
-void Chunk::DrawArch(int x, int y, int z, BlockType type, bool vertical)
-{
-	for (size_t u = 0; u < 4; u+=2)
-	{
-		for (size_t v = 0; v < 4; v++)
-		{
-			if (vertical)
-				m_blocks.Set(x, y + v, z + u, type);
-			else
-				m_blocks.Set(x + u, y + v, z, type);
-		}
-	}
-	if (vertical)
-		m_blocks.Set(x, y + 3, z + 1, type);
-	else
-		m_blocks.Set(x + 1, y + 3, z, type);
-}
-void Chunk::DrawRoundStairs(int x, int y, int z, BlockType type)
-{
-	int nx = 0;
-	int nz = 0;
-	for (size_t ny = y; ny < CHUNK_SIZE_Y; ny++)
-	{
-		switch (ny % 9)
-		{
-		case 0:
-			nx = 0;
-			nz = 0;
-			break;
-		case 1:
-			nx = 0;
-			nz = 1;
-			break;
-		case 2:
-			nx = 0;
-			nz = 2;
-			break;
-		case 3:
-			nx = 1;
-			nz = 2;
-			break;
-		case 4:
-			nx = 2;
-			nz = 2;
-			break;
-		case 5:
-			nx = 2;
-			nz = 1;
-			break;
-		case 6:
-			nx = 2;
-			nz = 0;
-			break;
-		case 7:
-			nx = 1;
-			nz = 2;
-			break;
-		case 8:
-			nx = 0;
-			nz = 0;
-			break;
-		}
-		m_blocks.Set(x + nx, y + ny, z + nz, type);
 	}
 }
 void Chunk::DrawTower(int x, int y, int z, BlockType type)
 {
-	for (size_t i = 0; i < 16; i++)
+	for (size_t i = 0; i < 16; i++)				
 	{
 		for (size_t j = 0; j < 4; j++)
 		{

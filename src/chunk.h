@@ -25,12 +25,8 @@ public:
 	//BLOCK_TYPE GetBloc_s(int x, int y, int z);
 	Vector3f GetSize() const;
 	uint8 IsVisible(int x, int y, int z);
-	void DrawPlayGround();
-	void DrawStairs(int x, int y, int z, BlockType type, bool vertical = false);
-	void DrawWall(int x, int y, int z, BlockType type, bool vertical = false);
-	void DrawArch(int x, int y, int z, BlockType type, bool vertical = false);
-	void DrawRoundStairs(int x, int y, int z, BlockType type);
 	void DrawTower(int x, int y, int z, BlockType type);
+	void DrawTree(int x, int y, int z);
 private:
 	Array3d<BlockType> m_blocks;
 	ChunkMesh m_chunkMesh;
