@@ -11,7 +11,7 @@ Chunk::Chunk(Perlin* perlin, int nx, int nz) : m_blocks(CHUNK_SIZE_X, CHUNK_SIZE
 			int height = CHUNK_SIZE_Y * (perlin->Get((float)(nz + z) / 2000.f, (float)(nx + x) / 2000.f) + 1) / 2;
 			for (int y = 0; y < height; ++y)
 			{
-				SetBloc(x, y, z, height - y < 5 ? BTYPE_DIRT : BTYPE_STONE);
+				SetBloc(x, y, z, height - y < 5 ? height - y == 1 ? BTYPE_GRASS : BTYPE_DIRT : BTYPE_STONE);
 			} 
 		} 
 	}
