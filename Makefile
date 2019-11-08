@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++14
-LDFLAGS =  -lGL -lglut -lGLU -lGLEW -lIL -lILU -lILUT -lsfml-graphics -lsfml-window -lsfml-system
+LDFLAGS =  -lglut -lGLU -lGLEW -lGL -lIL -lILU -lILUT -lsfml-graphics -lsfml-window -lsfml-system
 
 SRC = $(wildcard src/*.cpp)
 OBJ = $(SRC:.cpp=.o)
@@ -9,7 +9,7 @@ EXEC = cube_planet
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
+	$(CXX) -o $@ $(OBJ) $(LBLIBS) $(LDFLAGS)
 
 clean:
 	rm -rf $(OBJ) $(EXEC)

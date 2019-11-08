@@ -61,9 +61,9 @@ void Engine::LoadResource()
 	// Bloc Air
 	BlockInfo* BlocAir = new BlockInfo(BTYPE_AIR, "Air");
 	m_listBloc->Set(BTYPE_AIR % 4, BTYPE_AIR / 4, *BlocAir);
-	
+
 	// Bloc Grass
-	TextureAtlas::TextureIndex texGrassIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "grass.png");
+	TextureAtlas::TextureIndex texGrassIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "grass256.png");
 	BlockInfo* BlocGrass = new BlockInfo(BTYPE_GRASS, "Grass");
 	BlocGrass->GenerateTexCoord(texGrassIndex, m_textureAtlas);
 	m_listBloc->Set(BTYPE_GRASS % 4, BTYPE_GRASS / 4, *BlocGrass);
@@ -93,7 +93,7 @@ void Engine::LoadResource()
 	m_listBloc->Set(BTYPE_SANDSTONE % 4, BTYPE_SANDSTONE / 4, *BlocSandRock);
 
 	//Bloc Feuille
-	TextureAtlas::TextureIndex texFeuilleIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "leaf.jpg");
+	TextureAtlas::TextureIndex texFeuilleIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "leaves.png");
 	BlockInfo* BlocFeuille = new BlockInfo(BTYPE_LEAF, "Leaf");
 	BlocFeuille->GenerateTexCoord(texFeuilleIndex, m_textureAtlas);
 	m_listBloc->Set(BTYPE_LEAF % 4, BTYPE_LEAF / 4, *BlocFeuille);
@@ -331,7 +331,7 @@ void Engine::KeyReleaseEvent(unsigned char key)
 	case 24:       // Y
 		m_wireframe = !m_wireframe;
 		if (m_wireframe)
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		  	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		else
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		break;
@@ -512,8 +512,13 @@ void Engine::CheckCollision(float fTime)
 	bt1 = m_World.BlockAt(pos.x, pos.y + delta.y, pos.z);
 	bt2 = m_World.BlockAt(pos.x, pos.y - 0.9f + delta.y, pos.z);
 	bt3 = m_World.BlockAt(pos.x, pos.y - 1.7f + delta.y, pos.z);
-	if (bt1 != BTYPE_AIR || bt2 != BTYPE_AIR || bt3 != BTYPE_AIR)
+	if (bt1 != BTYPE_AIR || bt2 != BTYPE_AIR || bt3 != BTYPE_AIR) {
 		delta.y = 0;
+		if (m_player->m_vitessePersonnage.y < 0)
+		{
+			m_player->m_vitessePersonnage.y = 0;
+		}
+	}
 
 	bt1 = m_World.BlockAt(pos.x, pos.y, pos.z + delta.z);
 	bt3 = m_World.BlockAt(pos.x, pos.y - 0.9f, pos.z + delta.z);

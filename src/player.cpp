@@ -61,7 +61,7 @@ Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool
 	{
 		if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
 			m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR) {
-			m_vitessePersonnage.y += 10.f;
+			m_vitessePersonnage.y += 100.f * elapsedTime;
 		}
 	}
 	if (crouch)
@@ -69,13 +69,19 @@ Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool
 		vecteurDeplacement.y -= float(20 * elapsedTime);
 	}
 	if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
-		m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR) {
+		m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR)
+	{
 		m_vitessePersonnage.y = m_vitessePersonnage.y > 0 ? m_vitessePersonnage.y : 0;
 	}
-	else {
-		m_vitessePersonnage.y += GRAVITY * 2 * elapsedTime;
+	else if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y + 0.4f, m_positionPersonnage.z) != BTYPE_AIR)
+	{
+		m_vitessePersonnage.y = m_vitessePersonnage.y < 0 ? m_vitessePersonnage.y : 0;
 	}
-	vecteurDeplacement.y += m_vitessePersonnage.y * elapsedTime;
+	else {
+		m_vitessePersonnage.y += GRAVITY * 3 * elapsedTime;
+	}
+	// FIXME: Reducing Y by smallish increments because collision detection is shady
+	vecteurDeplacement.y += m_vitessePersonnage.y * elapsedTime - 1.f * elapsedTime;
 
 	return vecteurDeplacement;
 }

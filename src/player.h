@@ -19,11 +19,11 @@ public:
 	void ApplyTranslation() const;
 	Vector3f Position() const;
 	void SetPosition(Vector3f v);
+	Vector3f m_vitessePersonnage;
 private:
 	World* m_World;
 	Vector3f m_positionPersonnage;
 	Vector3f m_accelerationPersonnage;
-	Vector3f m_vitessePersonnage;
 	float rotX = 0.f, rotY = 0.f, angle = 0.0f;
 	float vitesseY = 0.f;
 };
