@@ -60,61 +60,61 @@ void Engine::LoadResource()
 	}
 	// Bloc Air
 	BlockInfo* BlocAir = new BlockInfo(BTYPE_AIR, "Air");
-	m_listBloc->Set(BTYPE_AIR % 4, BTYPE_AIR / 4, *BlocAir);
+	m_listBloc.Set(BTYPE_AIR % 4, BTYPE_AIR / 4, *BlocAir);
 
 	// Bloc Grass
 	TextureAtlas::TextureIndex texGrassIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "grass.png");
-	BlockInfo* BlocGrass = new BlockInfo(BTYPE_GRASS, "Grass");
-	BlocGrass->GenerateTexCoord(texGrassIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_GRASS % 4, BTYPE_GRASS / 4, *BlocGrass);
+	BlockInfo blocGrass = BlockInfo(BTYPE_GRASS, "Grass");
+	blocGrass.GenerateTexCoord(texGrassIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_GRASS % 4, BTYPE_GRASS / 4, blocGrass);
 
 	// Bloc Dirt
 	TextureAtlas::TextureIndex texDirtIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "dirt.jpg");
-	BlockInfo* BlocDirt = new BlockInfo(BTYPE_DIRT, "Dirt");
-	BlocDirt->GenerateTexCoord(texDirtIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_DIRT % 4, BTYPE_DIRT / 4, *BlocDirt);
+	BlockInfo blocDirt = BlockInfo(BTYPE_DIRT, "Dirt");
+	blocDirt.GenerateTexCoord(texDirtIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_DIRT % 4, BTYPE_DIRT / 4, blocDirt);
 
 	// Bloc Stone
 	TextureAtlas::TextureIndex texStoneIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "stone.png");
-	BlockInfo* BlocStone = new BlockInfo(BTYPE_STONE, "Stone");
-	BlocStone->GenerateTexCoord(texStoneIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_STONE % 4, BTYPE_STONE / 4, *BlocStone);
+	BlockInfo blocStone = BlockInfo(BTYPE_STONE, "Stone");
+	blocStone.GenerateTexCoord(texStoneIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_STONE % 4, BTYPE_STONE / 4, blocStone);
 
 	// Bloc Sand
 	TextureAtlas::TextureIndex texSandIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "sand.jpg");
-	BlockInfo* BlocSand = new BlockInfo(BTYPE_SAND, "Sand");
-	BlocSand->GenerateTexCoord(texSandIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_SAND % 4, BTYPE_SAND / 4, *BlocSand);
+	BlockInfo blocSand = BlockInfo(BTYPE_SAND, "Sand");
+	blocSand.GenerateTexCoord(texSandIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_SAND % 4, BTYPE_SAND / 4, blocSand);
 
 	// Bloc SandStone
 	TextureAtlas::TextureIndex texSandRockIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "sandstone.jpg");
-	BlockInfo* BlocSandRock = new BlockInfo(BTYPE_SANDSTONE, "SandStone");
-	BlocSandRock->GenerateTexCoord(texSandRockIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_SANDSTONE % 4, BTYPE_SANDSTONE / 4, *BlocSandRock);
+	BlockInfo blocSandRock = BlockInfo(BTYPE_SANDSTONE, "SandStone");
+	blocSandRock.GenerateTexCoord(texSandRockIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_SANDSTONE % 4, BTYPE_SANDSTONE / 4, blocSandRock);
 
 	//Bloc Feuille
 	TextureAtlas::TextureIndex texFeuilleIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "leaves.png");
-	BlockInfo* BlocFeuille = new BlockInfo(BTYPE_LEAF, "Leaf");
-	BlocFeuille->GenerateTexCoord(texFeuilleIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_LEAF % 4, BTYPE_LEAF / 4, *BlocFeuille);
+	BlockInfo blocFeuille = BlockInfo(BTYPE_LEAF, "Leaf");
+	blocFeuille.GenerateTexCoord(texFeuilleIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_LEAF % 4, BTYPE_LEAF / 4, blocFeuille);
 
 	//Bloc Bois
 	TextureAtlas::TextureIndex texBoisIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "wood.png");
-	BlockInfo* BlocBois = new BlockInfo(BTYPE_WOOD, "Wood");
-	BlocBois->GenerateTexCoord(texBoisIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_WOOD % 4, BTYPE_WOOD / 4, *BlocBois);
+	BlockInfo blocBois = BlockInfo(BTYPE_WOOD, "Wood");
+	blocBois.GenerateTexCoord(texBoisIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_WOOD % 4, BTYPE_WOOD / 4, blocBois);
 
 	//Bloc Planche
 	TextureAtlas::TextureIndex texPlankIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "woodPlank.png");
-	BlockInfo* BlocPlank = new BlockInfo(BTYPE_PLANK, "Plank");
-	BlocPlank->GenerateTexCoord(texPlankIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_PLANK % 4, BTYPE_PLANK / 4, *BlocPlank);
+	BlockInfo blocPlank = BlockInfo(BTYPE_PLANK, "Plank");
+	blocPlank.GenerateTexCoord(texPlankIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_PLANK % 4, BTYPE_PLANK / 4, blocPlank);
 
 	// Bloc Unknown
 	TextureAtlas::TextureIndex texUnknownIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "tile.jpg");
-	BlockInfo* BlocUnknown = new BlockInfo(BTYPE_UNKNOWN, "Unknown");
-	BlocUnknown->GenerateTexCoord(texUnknownIndex, m_textureAtlas);
-	m_listBloc->Set(BTYPE_UNKNOWN % 4, BTYPE_UNKNOWN / 4, *BlocUnknown);
+	BlockInfo blocUnknown = BlockInfo(BTYPE_UNKNOWN, "Unknown");
+	blocUnknown.GenerateTexCoord(texUnknownIndex, m_textureAtlas);
+	m_listBloc.Set(BTYPE_UNKNOWN % 4, BTYPE_UNKNOWN / 4, blocUnknown);
 
 	LoadTexture(m_skybox[0], TEXTURE_PATH "Skybox_Front.png", true);
 	LoadTexture(m_skybox[1], TEXTURE_PATH "Skybox_Left.png", true);
@@ -169,7 +169,7 @@ void Engine::Render(float elapsedTime)
 	glDisable(GL_BLEND);
 
 
-	m_player->ApplyRotation();
+	m_player.ApplyRotation();
 
 	glColor4f(1, 1, 1, 1);
 	
@@ -238,7 +238,7 @@ void Engine::Render(float elapsedTime)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	m_player->ApplyRotation();
+	m_player.ApplyRotation();
 	CheckCollision(elapsedTime);
 	glTranslatef(0.5f, 0.5f, 0.5f);
 	// Plancher
@@ -253,7 +253,7 @@ void Engine::Render(float elapsedTime)
 		{
 			Chunk* chunk = m_World.m_Map.Get(x, z);
 			if (chunk->IsDirty())
-				chunk->Update(m_listBloc);
+				chunk->Update(&m_listBloc);
 			chunk->Render();
 		}
 	}
@@ -371,8 +371,8 @@ void Engine::MouseMoveEvent(int x, int y)
 		return;
 
 	MakeRelativeToCenter(x, y);
-	m_player->TurnLeftRight((float)x);
-	m_player->TurnTopBottom((float)y);
+	m_player.TurnLeftRight((float)x);
+	m_player.TurnTopBottom((float)y);
 
 	CenterMouse();
 }
@@ -431,7 +431,7 @@ void Engine::DrawHud()
 	ss << "Bloc : " << m_player->BlocUnder();
 	PrintText(10, 30, ss.str());*/
 	ss.str("");
-	ss << " Position : " << m_player->Position(); // IMPORTANT : on utilise l � operateur << pour afficher la position
+	ss << " Position : " << m_player.Position(); // IMPORTANT : on utilise l � operateur << pour afficher la position
 	PrintText(10, 10, ss.str());
 	// Affichage du crosshair
 	m_textureCrosshair.Bind();
@@ -498,8 +498,8 @@ bool Engine::LoadTexture(Texture& texture, const std::string& filename, bool bWr
 
 void Engine::CheckCollision(float fTime)
 {
-	Vector3f pos = m_player->Position();
-	Vector3f delta = m_player->SimulateMove(m_keyW, m_keyS, m_keyA, m_keyD, m_keyShift, m_keyJump, m_keyCrouch, fTime);
+	Vector3f pos = m_player.Position();
+	Vector3f delta = m_player.SimulateMove(m_keyW, m_keyS, m_keyA, m_keyD, m_keyShift, m_keyJump, m_keyCrouch, fTime);
 
 	BlockType bt1, bt2, bt3;
 
@@ -514,9 +514,9 @@ void Engine::CheckCollision(float fTime)
 	bt3 = m_World.BlockAt(pos.x, pos.y - 1.7f + delta.y, pos.z);
 	if (bt1 != BTYPE_AIR || bt2 != BTYPE_AIR || bt3 != BTYPE_AIR) {
 		delta.y = 0;
-		if (m_player->m_vitessePersonnage.y < 0)
+		if (m_player.m_vitessePersonnage.y < 0)
 		{
-			m_player->m_vitessePersonnage.y = 0;
+			m_player.m_vitessePersonnage.y = 0;
 		}
 	}
 
@@ -527,8 +527,8 @@ void Engine::CheckCollision(float fTime)
 		delta.z = 0;
 
 	pos += delta;
-	m_player->SetPosition(pos);
-	m_player->ApplyTranslation();
+	m_player.SetPosition(pos);
+	m_player.ApplyTranslation();
 }
 
 void Engine::GetBlocAtCursor()
@@ -564,7 +564,7 @@ void Engine::GetBlocAtCursor()
 
     bool found = false;
 
-    if((m_player->Position() - Vector3f(posX, posY, posZ)).Length() < MAX_SELECTION_DISTANCE)
+    if((m_player.Position() - Vector3f(posX, posY, posZ)).Length() < MAX_SELECTION_DISTANCE)
     {
         // Apres avoir determine la position du bloc en utilisant la partie entiere du hit
         // point retourne par opengl, on doit verifier de chaque cote du bloc trouve pour trouver

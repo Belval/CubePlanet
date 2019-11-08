@@ -48,13 +48,11 @@ private:
 	Shader m_shader01;
 
 	World m_World;
-	Player* m_player = new Player(&m_World);
+	Player m_player = Player(&m_World);
 
 	float m_elapsedTimeOnBlock = 0.f;
 	Vector3<int> m_currentBlock;
-	//Chunk m_testChunk;
-	//Chunk m_testChunk2;
-	Array2d<BlockInfo>* m_listBloc = new Array2d<BlockInfo>(sqrt(TEXTURE_ATLAS_SIZE), sqrt(TEXTURE_ATLAS_SIZE));
+	Array2d<BlockInfo> m_listBloc = Array2d<BlockInfo>(sqrt(TEXTURE_ATLAS_SIZE), sqrt(TEXTURE_ATLAS_SIZE));
 
 };
 

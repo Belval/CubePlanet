@@ -11,7 +11,7 @@
 class Chunk
 {
 public:
-    Chunk(Perlin* perlin, int x = 0, int z = 0);
+    Chunk(Perlin perlin, int x = 0, int z = 0);
     ~Chunk();
 
 	void Update(Array2d<BlockInfo>* m_listBloc);

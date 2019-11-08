@@ -14,7 +14,7 @@ public:
 	Chunk* ChunkAt(const Vector3f& pos) const;
 	BlockType BlockAt(int x, int y, int z, BlockType bType = BTYPE_AIR) const;
 	Array2d<Chunk*> m_Map;
-	Perlin* m_perlin = new Perlin(16, 2, 1, 95);
+	Perlin m_perlin = Perlin(16, 2, 1, 95);
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include "chunk.h"
 
-Chunk::Chunk(Perlin* perlin, int nx, int nz) : m_blocks(CHUNK_SIZE_X, CHUNK_SIZE_Y, CHUNK_SIZE_Z)
+Chunk::Chunk(Perlin perlin, int nx, int nz) : m_blocks(CHUNK_SIZE_X, CHUNK_SIZE_Y, CHUNK_SIZE_Z)
 {
 	m_positionChunk.x = nx;
 	m_positionChunk.z = nz;
@@ -8,7 +8,7 @@ Chunk::Chunk(Perlin* perlin, int nx, int nz) : m_blocks(CHUNK_SIZE_X, CHUNK_SIZE
 	{ 
 		for (int z = 0; z < CHUNK_SIZE_Z; ++z) 
 		{ 
-			int height = CHUNK_SIZE_Y * (perlin->Get((float)(nz + z) / 2000.f, (float)(nx + x) / 2000.f) + 1) / 2;
+			int height = CHUNK_SIZE_Y * (perlin.Get((float)(nz + z) / 2000.f, (float)(nx + x) / 2000.f) + 1) / 2;
 			for (int y = 0; y < height; ++y)
 			{
 				SetBloc(x, y, z, height - y < 5 ? height - y == 1 ? BTYPE_GRASS : BTYPE_DIRT : BTYPE_STONE);
