@@ -48,7 +48,7 @@ private:
 	Shader m_shader01;
 
 	World m_World;
-	Player m_player = Player(&m_World);
+	Player m_player = Player(m_World);
 
 	float m_elapsedTimeOnBlock = 0.f;
 	Vector3<int> m_currentBlock;

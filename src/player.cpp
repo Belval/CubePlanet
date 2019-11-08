@@ -1,9 +1,6 @@
 #include "player.h"
 
-Player::Player(World* world, float posX, float posY, float posZ, float rotX, float rotY) : m_positionPersonnage(posX, posY, posZ)
-{
-	m_World = world;
-}
+Player::Player(World world, float posX, float posY, float posZ, float rotX, float rotY) : m_World(world), m_positionPersonnage(posX, posY, posZ) {}
 
 Player::~Player() { }
 
@@ -59,8 +56,8 @@ Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool
 	}
 	if (jump)
 	{
-		if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
-			m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR) {
+		if (m_World.BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
+			m_World.BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR) {
 			m_vitessePersonnage.y += 100.f * elapsedTime;
 		}
 	}
@@ -68,12 +65,12 @@ Vector3f Player::SimulateMove(bool front, bool back, bool left, bool right, bool
 	{
 		vecteurDeplacement.y -= float(20 * elapsedTime);
 	}
-	if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
-		m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR)
+	if (m_World.BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 1.7f, m_positionPersonnage.z) != BTYPE_AIR ||
+		m_World.BlockAt(m_positionPersonnage.x, m_positionPersonnage.y - 2.0f, m_positionPersonnage.z) != BTYPE_AIR)
 	{
 		m_vitessePersonnage.y = m_vitessePersonnage.y > 0 ? m_vitessePersonnage.y : 0;
 	}
-	else if (m_World->BlockAt(m_positionPersonnage.x, m_positionPersonnage.y + 0.4f, m_positionPersonnage.z) != BTYPE_AIR)
+	else if (m_World.BlockAt(m_positionPersonnage.x, m_positionPersonnage.y + 0.4f, m_positionPersonnage.z) != BTYPE_AIR)
 	{
 		m_vitessePersonnage.y = m_vitessePersonnage.y < 0 ? m_vitessePersonnage.y : 0;
 	}
@@ -105,53 +102,3 @@ void Player::SetPosition(Vector3f v)
 {
 	m_positionPersonnage = v;
 }
-
-//void Player::CalculateY(float fTime)
-//{
-//	Vector3f v;
-//	v.y = roundf(vitesseY * fTime * 10.f) / 10.f;
-//	Vector3f nouvellePosition = m_positionPersonnage + v;
-//	bool positive = m_positionPersonnage.y <= nouvellePosition.y;
-//	int delta = roundf(abs(m_positionPersonnage.y - nouvellePosition.y));
-//	std::cout << "delta: " << (delta) << std::endl;
-//	//assert(delta == 0);
-//	if (delta != 0)
-//	{
-//		std::cout << "";
-//	}
-//	int i = delta;
-//	do
-//	{
-//		std::cout << "i: " << i << std::endl;
-//		//float posY = nouvellePosition.y - i /*(positive ? delta - i : i)*/;
-//		float posY = roundf(nouvellePosition.y - (positive ? i - 1.f : delta - i + 1.f));
-//		auto btype = m_currentChunk->GetBloc_s(
-//			roundf(nouvellePosition.x - m_currentChunkPos.x * CHUNK_SIZE_X),
-//			posY,
-//			roundf(nouvellePosition.z - m_currentChunkPos.z * CHUNK_SIZE_Z));
-//		if (btype != BTYPE_AIR)
-//		{
-//			std::cout << "It's a hit?" << posY << std::endl;
-//			m_positionPersonnage.y = posY + 1.7f;
-//			//m_positionPersonnage.y = nouvellePosition.y + (delta * sign);
-//			vitesseY = 0.f;
-//			return;
-//		}
-//		else
-//		{
-//			std::cout << "";
-//		}
-//	} while (i--);
-//	//if (!Collision(v))
-//	//{
-//		//std::cout << "Nope" << std::endl;
-//		m_positionPersonnage += v;
-//		vitesseY += roundf(GRAVITY * fTime * 3.0f * 10.f) / 10.f;
-//	//}
-//	//else
-//	//{
-//	//	std::cout << "Yep" << std::endl;
-//	//	m_positionPersonnage.y = ceilf(m_positionPersonnage.y) - 0.3f;
-//	//}
-//	std::cout << vitesseY << std::endl;
-//}

@@ -7,7 +7,7 @@
 
 class Player {
 public:
-	Player(World* world, float posX = VIEW_DISTANCE, float posY = 100.f, float posZ = VIEW_DISTANCE, float rotX = 0, float rotY = 0);
+	Player(World world, float posX = VIEW_DISTANCE, float posY = 100.f, float posZ = VIEW_DISTANCE, float rotX = 0, float rotY = 0);
 	~Player();
 
 	void TurnLeftRight(float value);
@@ -21,7 +21,7 @@ public:
 	void SetPosition(Vector3f v);
 	Vector3f m_vitessePersonnage;
 private:
-	World* m_World;
+	World m_World;
 	Vector3f m_positionPersonnage;
 	Vector3f m_accelerationPersonnage;
 	float rotX = 0.f, rotY = 0.f, angle = 0.0f;
