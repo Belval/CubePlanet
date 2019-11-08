@@ -63,7 +63,7 @@ void Engine::LoadResource()
 	m_listBloc->Set(BTYPE_AIR % 4, BTYPE_AIR / 4, *BlocAir);
 
 	// Bloc Grass
-	TextureAtlas::TextureIndex texGrassIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "grass256.png");
+	TextureAtlas::TextureIndex texGrassIndex = m_textureAtlas.AddTexture(TEXTURE_PATH "grass.png");
 	BlockInfo* BlocGrass = new BlockInfo(BTYPE_GRASS, "Grass");
 	BlocGrass->GenerateTexCoord(texGrassIndex, m_textureAtlas);
 	m_listBloc->Set(BTYPE_GRASS % 4, BTYPE_GRASS / 4, *BlocGrass);
